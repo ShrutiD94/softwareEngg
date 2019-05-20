@@ -97,28 +97,39 @@ public class Restaurant {
 		return input;
 	}
 	ArrayList<Menu> orderItems = new ArrayList<Menu>();
-	public void displayRestaurant(Restaurant r1) {
+	
+	
+	
+	
+	
+	
+	public Restaurant displayRestaurant(Restaurant r1) {
 		
-		System.out.println("I am restaurant 1");
+		//clrscr();
+		System.out.println("DERBY THAI\n" + "Authentic Thai Cusine\n"+"Takeaway available");
 		System.out.println(r1.getRestaurant_name());
 		System.out.println("Do you wish to see the menu? Press 1 \n" + "Do you wish to go back? Press 2 \n");
 		int choice = Integer.parseInt(acceptInput());
-		if (choice == 1)
-		{
+		//if (choice == 1)
+		//{
 			int index = choice - 1;
 			//System.out.println(index);
 			
 			//System.out.println(getMenuitems().get(index));
-			displayMenu(r1);
-		}
+			
+			//return r1;
+			Restaurant restaurant = addMenu(r1, index);
+			return restaurant;
+		//}
+		//return null;
 		
 	}
 
 
-	public void displayMenu(Restaurant r1) {
+	public Restaurant addMenu(Restaurant r1, int index) {
 		
 		
-		if(r1.getRestaurant_name()=="Restaurant 1")
+		if(r1.getRestaurant_name()=="Derby Thai")
 		{
 		menuitems = new ArrayList<Menu>();
 		menuitems.add(new Menu(101, "Soup", 10, "Tomato soup with Basil leaves"));
@@ -126,7 +137,7 @@ public class Restaurant {
 		r1 = new Restaurant(1,"Restaurant 1","Carnegie","9969777510",menuitems);
 		}
 		else
-			if(r1.getRestaurant_name()=="Restaurant 2")
+			if(r1.getRestaurant_name()=="Korean Kimchi")
 			{
 		menuitems = new ArrayList<Menu>();
 		menuitems.add(new Menu(201, "Soup", 10, "Tomato soup with Basil leaves"));
@@ -135,11 +146,11 @@ public class Restaurant {
 			}
 			else
 				System.out.println("Invalid");
-		addCart(r1);
+		return r1;
 		//System.out.println("1. " + menuitems.get(index).getItem_name() + "\n" + menuitems.get(index).getItem_desc());
 	}
 	
-	public void addCart(Restaurant r1)
+	/*public void addCart(Restaurant r1)
 	{
 		for (int i = 0; i < r1.getMenuitems().size(); i++)
 		{
@@ -190,7 +201,7 @@ public class Restaurant {
 		}
 	}
 		//System.out.println("Out of the loop");
-
+*/
 
 	public void removeCart(ArrayList<Menu> orderItems, Restaurant r1) {
 		

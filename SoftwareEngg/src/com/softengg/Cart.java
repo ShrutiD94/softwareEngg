@@ -12,6 +12,7 @@ public class Cart {
 	
 	public Cart() {
 		super();
+		orderitems =new ArrayList<Menu>();
 	}
 	public Cart(ArrayList<Menu> orderitems) {
 		super();
@@ -33,6 +34,17 @@ public class Cart {
 		}
 		
 	}
+	
+	public void addItems(Menu item)
+	{
+		orderitems.add(item);
+		
+		for (int i =0; i<orderitems.size(); i++)
+		{
+			System.out.println(orderitems.get(i).getItem_name());
+		}
+		
+	}
 	public void checkout(ArrayList<Menu> orderItems) {
 		
 		double total_price = 0;
@@ -43,10 +55,14 @@ public class Cart {
 			total_price = total_price + item.getItem_price();
 			
 		}
-		System.out.println("Total Price: " + total_price);
+		System.out.println("Total Price: " + total_price);	
 		System.out.println("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+");
 		System.out.println("Please select Payment Mode:\n\n1.Cash \n"+ "2.Coupons\n"+"3.Cash + Coupons \n");
 		System.out.println("Checking out");
+		System.out.println("Order confirmed!");
+		Order placed_order = new Order();
+		placed_order.confirmOrder(orderItems);
+		
 	}
 
 
